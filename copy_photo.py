@@ -20,13 +20,13 @@ def copy_file(dir, to_dir, ext):
                     shutil.copyfile(file, to_file)
                     print file
 
-def R(dir, to_dir, ext):
-    to_dir = to_dir + os.path.sep + 'R' + ext
-    to_dir_exist = os.path.exists(to_dir)
-    if to_dir_exist == False:
-        r = os.makedirs(to_dir)
-    copy_file(dir, to_dir, ext)
+def R(dir, to_dir, ext_arr):
+    for ext in ext_arr:
+        to_dir_inner = to_dir + os.path.sep + 'R' + ext
+        to_dir_exist = os.path.exists(to_dir_inner)
+        if to_dir_exist == False:
+            r = os.makedirs(to_dir_inner)
+        copy_file(dir, to_dir_inner, ext)
 
 if __name__ == '__main__':
-    R(dir, to_dir, '.jpg')
-    R(dir, to_dir, '.mov')
+    R(dir, to_dir, ['.jpg', '.mov'])
