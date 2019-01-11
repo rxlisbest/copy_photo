@@ -22,7 +22,7 @@ def copy_file(dir, to_dir, ext):
                     shutil.copyfile(file, to_file)
                     print file
 
-def R(dir, to_dir, ext_arr):
+def r(dir, to_dir, ext_arr):
     for ext in ext_arr:
         to_dir_inner = to_dir + os.path.sep + ext[1:]
         to_dir_exist = os.path.exists(to_dir_inner)
@@ -31,4 +31,4 @@ def R(dir, to_dir, ext_arr):
         copy_file(dir, to_dir_inner, ext)
 
 if __name__ == '__main__':
-    R(dir, to_dir, ['.jpg', '.mov'])
+    r(dir, to_dir, ['.jpg', '.mov'])
